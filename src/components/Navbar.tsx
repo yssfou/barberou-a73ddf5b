@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useLang } from "../lib/LangContext";
 import { gsap } from "gsap";
-import logoAsset from "../assets/barbero-logo.png.asset.json";
 
 const langs: Array<"fr" | "en" | "ar"> = ["fr", "en", "ar"];
 
@@ -44,7 +43,13 @@ export default function Navbar() {
     <>
       <nav ref={navRef} className="navbar">
         <Link to="/" className="navbar-logo">
-          <img src={logoAsset.url} alt="Barbero" className="brand-mark" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="6" cy="6" r="3" />
+            <circle cx="6" cy="18" r="3" />
+            <line x1="20" y1="4" x2="8.12" y2="15.88" />
+            <line x1="14.47" y1="14.48" x2="20" y2="20" />
+            <line x1="8.12" y1="8.12" x2="12" y2="12" />
+          </svg>
           BARBERO
         </Link>
         <div className="navbar-links">

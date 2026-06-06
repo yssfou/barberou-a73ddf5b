@@ -785,12 +785,3 @@ img { display: block; max-width: 100%; }
 /* lang fade */
 .lang-fade { transition: opacity 0.3s ease; }
 .lang-fading { opacity: 0; }
-
-.brand-mark { width: 28px; height: 28px; object-fit: contain; display: inline-block; vertical-align: middle; }
-.brand-mark-lg { width: 56px; height: 56px; margin-bottom: 8px; display: block; }
-.footer-logo { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.shop-watermark {
-  position: absolute; top: 12px; left: 12px; width: 38px; height: 38px;
-  object-fit: contain; z-index: 2;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-}
