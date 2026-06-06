@@ -1,0 +1,314 @@
+[
+  {
+    "slug": "barbershop-classic",
+    "name": "Barbershop Classic",
+    "city": "Tunis",
+    "area": "La Marsa",
+    "type": "Barbier",
+    "rating": 5,
+    "priceMin": 15,
+    "priceMax": 35,
+    "description": "Le meilleur barbier de La Marsa. Coupes modernes, dégradés parfaits.",
+    "longDescription": "Barbershop Classic est une institution à La Marsa. Notre équipe de barbiers passionnés vous offre un service haut de gamme dans une ambiance chaleureuse et authentique. Coupes classiques, dégradés modernes, taille de barbe précise — chaque détail compte.",
+    "phone": "+21622476723",
+    "whatsapp": "https://wa.me/21622476723?text=Salam%2C%20nheb%20nrod%20rendez-vous",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Avenue Habib Bourguiba, La Marsa, Tunis",
+    "featured": true,
+    "cover": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&w=1400&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe Homme", "price": "15 DT" },
+      { "name": "Coupe + Barbe", "price": "25 DT" },
+      { "name": "Dégradé Premium", "price": "30 DT" },
+      { "name": "Rasage Traditionnel", "price": "20 DT" },
+      { "name": "Soin Visage", "price": "35 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi", "time": "09:00 - 20:00" },
+      { "day": "Mardi", "time": "09:00 - 20:00" },
+      { "day": "Mercredi", "time": "09:00 - 20:00" },
+      { "day": "Jeudi", "time": "09:00 - 20:00" },
+      { "day": "Vendredi", "time": "09:00 - 21:00" },
+      { "day": "Samedi", "time": "09:00 - 21:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "salon-nour",
+    "name": "Salon Nour",
+    "city": "Sousse",
+    "area": "Centre Ville",
+    "type": "Salon Esthétique",
+    "rating": 4.5,
+    "priceMin": 20,
+    "priceMax": 50,
+    "description": "Salon esthétique élégant au cœur de Sousse. Une expérience raffinée.",
+    "longDescription": "Salon Nour vous accueille dans un cadre élégant et apaisant. Spécialisé dans les soins esthétiques et capillaires, notre équipe vous offre un service personnalisé.",
+    "phone": "+21620000001",
+    "whatsapp": "https://wa.me/21620000001",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Avenue de la République, Sousse",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe Femme", "price": "30 DT" },
+      { "name": "Brushing", "price": "20 DT" },
+      { "name": "Coloration", "price": "50 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "09:00 - 19:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "fade-kings",
+    "name": "Fade Kings",
+    "city": "Ariana",
+    "area": "Ennasr",
+    "type": "Barbier",
+    "rating": 4.8,
+    "priceMin": 12,
+    "priceMax": 25,
+    "description": "Les rois du dégradé. Précision, style et bonne ambiance.",
+    "longDescription": "Fade Kings, c'est l'adresse incontournable pour les amateurs de dégradés parfaits et de coupes urbaines.",
+    "phone": "+21620000002",
+    "whatsapp": "https://wa.me/21620000002",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Ennasr 2, Ariana",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe", "price": "12 DT" },
+      { "name": "Coupe + Barbe", "price": "20 DT" },
+      { "name": "Dégradé", "price": "25 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "10:00 - 21:00" },
+      { "day": "Dimanche", "time": "10:00 - 18:00" }
+    ]
+  },
+  {
+    "slug": "beauty-palace",
+    "name": "Beauty Palace",
+    "city": "Sfax",
+    "area": "Centre",
+    "type": "Salon Esthétique",
+    "rating": 4.3,
+    "priceMin": 25,
+    "priceMax": 60,
+    "description": "Le palais de la beauté à Sfax. Soins complets et professionnels.",
+    "longDescription": "Beauty Palace propose une gamme complète de soins esthétiques dans un cadre luxueux.",
+    "phone": "+21620000003",
+    "whatsapp": "https://wa.me/21620000003",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Avenue Hedi Chaker, Sfax",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe Femme", "price": "35 DT" },
+      { "name": "Coloration", "price": "60 DT" },
+      { "name": "Soin Visage", "price": "40 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "09:00 - 20:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "sharp-cuts",
+    "name": "Sharp Cuts",
+    "city": "Tunis",
+    "area": "Centre Ville",
+    "type": "Barbier",
+    "rating": 4.7,
+    "priceMin": 18,
+    "priceMax": 40,
+    "description": "Coupes nettes, style impeccable. Référence à Tunis.",
+    "longDescription": "Sharp Cuts est le rendez-vous des hommes exigeants au centre de Tunis.",
+    "phone": "+21620000004",
+    "whatsapp": "https://wa.me/21620000004",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Avenue de France, Tunis",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe", "price": "18 DT" },
+      { "name": "Coupe + Barbe", "price": "30 DT" },
+      { "name": "Rasage", "price": "20 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "09:00 - 21:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "salon-yasmine",
+    "name": "Salon Yasmine",
+    "city": "Monastir",
+    "area": "Centre",
+    "type": "Salon Esthétique",
+    "rating": 4.6,
+    "priceMin": 15,
+    "priceMax": 45,
+    "description": "Élégance et raffinement à Monastir. Service haut de gamme.",
+    "longDescription": "Salon Yasmine vous offre une parenthèse de détente et de beauté.",
+    "phone": "+21620000005",
+    "whatsapp": "https://wa.me/21620000005",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Route de la Corniche, Monastir",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe Femme", "price": "25 DT" },
+      { "name": "Coloration", "price": "45 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "09:00 - 19:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "the-barber-room",
+    "name": "The Barber Room",
+    "city": "Tunis",
+    "area": "Les Berges du Lac",
+    "type": "Barbier",
+    "rating": 4.9,
+    "priceMin": 20,
+    "priceMax": 45,
+    "description": "Une salle de barbier moderne avec une touche vintage.",
+    "longDescription": "The Barber Room combine atmosphère vintage et techniques modernes pour une expérience unique.",
+    "phone": "+21620000006",
+    "whatsapp": "https://wa.me/21620000006",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Les Berges du Lac, Tunis",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe Signature", "price": "30 DT" },
+      { "name": "Coupe + Barbe", "price": "40 DT" },
+      { "name": "Rasage Royal", "price": "45 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "10:00 - 21:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "glam-studio",
+    "name": "Glam Studio",
+    "city": "Ariana",
+    "area": "Soukra",
+    "type": "Salon Esthétique",
+    "rating": 4.4,
+    "priceMin": 30,
+    "priceMax": 70,
+    "description": "Le glam à la tunisienne. Soins premium et look impeccable.",
+    "longDescription": "Glam Studio est le studio des stars en herbe, pour un look qui se démarque.",
+    "phone": "+21620000007",
+    "whatsapp": "https://wa.me/21620000007",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "La Soukra, Ariana",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe Femme", "price": "40 DT" },
+      { "name": "Coloration Premium", "price": "70 DT" },
+      { "name": "Maquillage", "price": "50 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "09:00 - 20:00" },
+      { "day": "Dimanche", "time": "Fermé" }
+    ]
+  },
+  {
+    "slug": "classic-touch",
+    "name": "Classic Touch",
+    "city": "Sfax",
+    "area": "Médina",
+    "type": "Barbier",
+    "rating": 4.2,
+    "priceMin": 10,
+    "priceMax": 20,
+    "description": "Tradition et savoir-faire. Le vrai barbier à l'ancienne.",
+    "longDescription": "Classic Touch perpétue l'art du barbier traditionnel avec passion et expertise.",
+    "phone": "+21620000008",
+    "whatsapp": "https://wa.me/21620000008",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "address": "Médina, Sfax",
+    "featured": false,
+    "cover": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&w=800&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&w=800&q=80"
+    ],
+    "services": [
+      { "name": "Coupe", "price": "10 DT" },
+      { "name": "Coupe + Barbe", "price": "15 DT" },
+      { "name": "Rasage", "price": "8 DT" }
+    ],
+    "hours": [
+      { "day": "Lundi - Samedi", "time": "08:00 - 20:00" },
+      { "day": "Dimanche", "time": "08:00 - 13:00" }
+    ]
+  }
+]
