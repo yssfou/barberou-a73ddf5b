@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useLang } from "../lib/LangContext";
+import logoAsset from "../assets/barbero-logo.png.asset.json";
 
 interface Shop {
   slug: string;
@@ -28,6 +29,7 @@ export default function ShopCard({ shop }: { shop: Shop }) {
       <Link to="/shop/$slug" params={{ slug: shop.slug }} style={{ display: "contents" }}>
         <div className="shop-cover">
           <img src={shop.cover} alt={shop.name} loading="lazy" />
+          <img src={logoAsset.url} alt="" aria-hidden="true" className="shop-watermark" />
           {shop.featured && (
             <span className="shop-badge featured-badge">⭐ {t.shops.featured}</span>
           )}

@@ -1,10 +1,14 @@
 import { useLang } from "../lib/LangContext";
+import logoAsset from "../assets/barbero-logo.png.asset.json";
 
 export default function Footer() {
   const { t } = useLang();
   return (
     <footer className="footer" id="about">
-      <div className="footer-logo">BARBERO</div>
+      <div className="footer-logo">
+        <img src={logoAsset.url} alt="Barbero" className="brand-mark brand-mark-lg" />
+        BARBERO
+      </div>
       <div className="footer-tagline">{t.footer.tagline}</div>
       <div className="footer-links">
         <a href="#shops">{t.nav.barbers}</a>
