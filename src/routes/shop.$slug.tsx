@@ -82,7 +82,7 @@ function ShopProfile() {
                 <tr><th>Service</th><th style={{ textAlign: "right" }}>Prix</th></tr>
               </thead>
               <tbody>
-                {shop.services.map((s, i) => (
+                {(shop.services as Array<{ name: string; price: string }>).map((s, i) => (
                   <tr key={i}><td>{s.name}</td><td>{s.price}</td></tr>
                 ))}
               </tbody>
@@ -92,16 +92,17 @@ function ShopProfile() {
           <section className="profile-section">
             <h2>{t.profile.hours}</h2>
             <div className="hours-grid">
-              {shop.hours.map((h, i) => (
-                <div key={i + "d"}>{h.day}</div>
-              )).flatMap((d, i) => [d, <div key={i + "t"}>{shop.hours[i].time}</div>])}
+              {(shop.hours as Array<{ day: string; time: string }>).flatMap((h, i) => [
+                <div key={`d${i}`}>{h.day}</div>,
+                <div key={`t${i}`}>{h.time}</div>,
+              ])}
             </div>
           </section>
 
           <section className="profile-section">
             <h2>{t.profile.gallery}</h2>
             <div className="gallery-grid">
-              {shop.gallery.map((g, i) => <img key={i} src={g} alt={`${shop.name} ${i + 1}`} loading="lazy" />)}
+              {(shop.gallery as string[]).map((g, i) => <img key={i} src={g} alt={`${shop.name} ${i + 1}`} loading="lazy" />)}
             </div>
           </section>
 
