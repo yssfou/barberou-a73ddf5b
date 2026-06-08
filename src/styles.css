@@ -91,7 +91,7 @@ img { display: block; max-width: 100%; }
   align-items: center;
   gap: 32px;
   padding: 12px 24px;
-  background: rgba(13,16,33,0.75);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-border);
@@ -216,12 +216,13 @@ img { display: block; max-width: 100%; }
 .hero-brand {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(60px, 12vw, 140px);
+  font-size: clamp(38px, 13vw, 140px);
   color: var(--color-gold-light);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   line-height: 1;
   margin-bottom: 12px;
   text-shadow: 0 0 40px rgba(201,168,76,0.3);
+  white-space: nowrap;
 }
 .hero-brand .letter { display: inline-block; }
 
