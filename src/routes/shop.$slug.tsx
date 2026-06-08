@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import shopsData from "../data/shops.json";
 import { useLang } from "../lib/LangContext";
 import { GoldDivider } from "../components/ArchFrame";
+import { WhatsAppIcon, PhoneIcon, FacebookIcon, InstagramIcon } from "../components/Icons";
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
@@ -121,10 +122,10 @@ function ShopProfile() {
               Contact direct
             </h3>
             <a className="btn-whatsapp" href={shop.whatsapp} target="_blank" rel="noopener">
-              💬 {t.profile.bookWhatsapp}
+              <WhatsAppIcon size={20} /> {t.profile.bookWhatsapp}
             </a>
             <a className="btn-gold-outline" href={`tel:${shop.phone}`}>
-              📞 {t.profile.callDirect}
+              <PhoneIcon size={18} /> {t.profile.callDirect}
             </a>
             <p style={{ marginTop: 16, color: "var(--color-muted)", fontSize: 13 }}>{shop.phone}</p>
           </div>
@@ -132,10 +133,10 @@ function ShopProfile() {
       </div>
 
       <div className="sticky-bar">
-        <a href={`tel:${shop.phone}`} className="sb-phone" aria-label="Phone">📞</a>
-        <a href={shop.whatsapp} target="_blank" rel="noopener" className="sb-wa" aria-label="WhatsApp">💬</a>
-        <a href={shop.facebook} target="_blank" rel="noopener" className="sb-fb" aria-label="Facebook">f</a>
-        <a href={shop.instagram} target="_blank" rel="noopener" className="sb-ig" aria-label="Instagram">◉</a>
+        <a href={`tel:${shop.phone}`} className="sb-phone" aria-label="Phone"><PhoneIcon size={22} /></a>
+        <a href={shop.whatsapp} target="_blank" rel="noopener" className="sb-wa" aria-label="WhatsApp"><WhatsAppIcon size={22} /></a>
+        <a href={shop.facebook} target="_blank" rel="noopener" className="sb-fb" aria-label="Facebook"><FacebookIcon size={22} /></a>
+        <a href={shop.instagram} target="_blank" rel="noopener" className="sb-ig" aria-label="Instagram"><InstagramIcon size={22} /></a>
       </div>
     </article>
   );
