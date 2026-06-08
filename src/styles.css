@@ -3,7 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;700&display=swap');
 
-:root {
+:root, [data-theme="dark"] {
   --color-bg: #0D1021;
   --color-bg-card: #12152E;
   --color-bg-card-2: #181c3a;
@@ -17,11 +17,28 @@
   --color-whatsapp: #25D366;
   --color-facebook: #1877F2;
   --color-instagram: #E1306C;
+  --bg-pattern-opacity: 0.06;
+  --nav-bg: rgba(13,16,33,0.75);
 
   --font-display: 'Cinzel', serif;
   --font-heading: 'Playfair Display', serif;
   --font-body: 'DM Sans', sans-serif;
   --font-arabic: 'Noto Sans Arabic', sans-serif;
+}
+
+[data-theme="light"] {
+  --color-bg: #FAF6EE;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-2: #F5EFE2;
+  --color-gold: #A8821C;
+  --color-gold-dark: #7d5f0a;
+  --color-gold-light: #C9A84C;
+  --color-cream: #1A1A2E;
+  --color-muted: #6B6A78;
+  --color-border: rgba(168,130,28,0.25);
+  --color-border-strong: rgba(168,130,28,0.55);
+  --bg-pattern-opacity: 0.08;
+  --nav-bg: rgba(255,250,240,0.85);
 }
 
 .lang-ar, .lang-ar body {
@@ -42,9 +59,11 @@ html, body {
 
 body {
   background-image:
-    radial-gradient(ellipse at top, rgba(201,168,76,0.06), transparent 60%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%23C9A84C' stroke-width='0.5' opacity='0.06'><path d='M40 0 L80 40 L40 80 L0 40 Z'/><path d='M40 15 L65 40 L40 65 L15 40 Z'/><circle cx='40' cy='40' r='8'/></g></svg>");
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--color-gold) 8%, transparent), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%23C9A84C' stroke-width='0.5' opacity='0.5'><path d='M40 0 L80 40 L40 80 L0 40 Z'/><path d='M40 15 L65 40 L40 65 L15 40 Z'/><circle cx='40' cy='40' r='8'/></g></svg>");
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
+html { transition: background-color 0.4s ease; }
 
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
