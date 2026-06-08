@@ -9,6 +9,7 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { LangProvider } from "../lib/LangContext";
+import { ThemeProvider } from "../lib/ThemeContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -47,11 +48,13 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <LangProvider>
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </LangProvider>
+      <ThemeProvider>
+        <LangProvider>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </LangProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
