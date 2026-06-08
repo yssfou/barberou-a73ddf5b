@@ -9,9 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SalonsRouteImport } from './routes/salons'
+import { Route as JoinRouteImport } from './routes/join'
+import { Route as BarbersRouteImport } from './routes/barbers'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 
+const SalonsRoute = SalonsRouteImport.update({
+  id: '/salons',
+  path: '/salons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JoinRoute = JoinRouteImport.update({
+  id: '/join',
+  path: '/join',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BarbersRoute = BarbersRouteImport.update({
+  id: '/barbers',
+  path: '/barbers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +43,65 @@ const ShopSlugRoute = ShopSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/barbers': typeof BarbersRoute
+  '/join': typeof JoinRoute
+  '/salons': typeof SalonsRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/barbers': typeof BarbersRoute
+  '/join': typeof JoinRoute
+  '/salons': typeof SalonsRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/barbers': typeof BarbersRoute
+  '/join': typeof JoinRoute
+  '/salons': typeof SalonsRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/shop/$slug'
+  fullPaths: '/' | '/barbers' | '/join' | '/salons' | '/shop/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/shop/$slug'
-  id: '__root__' | '/' | '/shop/$slug'
+  to: '/' | '/barbers' | '/join' | '/salons' | '/shop/$slug'
+  id: '__root__' | '/' | '/barbers' | '/join' | '/salons' | '/shop/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BarbersRoute: typeof BarbersRoute
+  JoinRoute: typeof JoinRoute
+  SalonsRoute: typeof SalonsRoute
   ShopSlugRoute: typeof ShopSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/salons': {
+      id: '/salons'
+      path: '/salons'
+      fullPath: '/salons'
+      preLoaderRoute: typeof SalonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/join': {
+      id: '/join'
+      path: '/join'
+      fullPath: '/join'
+      preLoaderRoute: typeof JoinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/barbers': {
+      id: '/barbers'
+      path: '/barbers'
+      fullPath: '/barbers'
+      preLoaderRoute: typeof BarbersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +121,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BarbersRoute: BarbersRoute,
+  JoinRoute: JoinRoute,
+  SalonsRoute: SalonsRoute,
   ShopSlugRoute: ShopSlugRoute,
 }
 export const routeTree = rootRouteImport

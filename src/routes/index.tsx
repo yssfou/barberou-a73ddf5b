@@ -7,6 +7,7 @@ import { cities } from "../data/translations";
 import { useLang } from "../lib/LangContext";
 import ArchFrame, { CornerOrnament, GoldDivider, BarberPole } from "../components/ArchFrame";
 import ShopCard from "../components/ShopCard";
+import { SearchIcon } from "../components/Icons";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,6 +23,7 @@ function Home() {
   const { t, lang } = useLang();
   const [cityFilter, setCityFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const heroRef = useRef<HTMLDivElement>(null);
   const poleRef = useRef<SVGSVGElement | null>(null);
 
@@ -92,6 +94,10 @@ function Home() {
   const filteredShops = shopsData.filter((s) => {
     if (cityFilter && s.city !== cityFilter) return false;
     if (typeFilter && s.type !== typeFilter) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      if (!s.name.toLowerCase().includes(q) && !s.city.toLowerCase().includes(q) && !s.area.toLowerCase().includes(q)) return false;
+    }
     return true;
   });
 
@@ -160,22 +166,25 @@ function Home() {
           <h2 className="section-title">{t.shops.title.split(" ")[0]} <span className="accent">{t.shops.title.split(" ").slice(1).join(" ")}</span></h2>
           <p className="section-subtitle">{t.shops.subtitle}</p>
 
-          <div className="filters">
-            <div className="filter-pill">
-              <span>{t.shops.filterCity}:</span>
-              <select value={cityFilter} onChange={(e) => setCityFilter(e.target.value)}>
-                <option value="">{t.shops.filterAll}</option>
-                {cities.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
+          <div className="search-bar">
+            <div className="search-input-wrap">
+              <SearchIcon size={18} />
+              <input
+                type="text"
+                placeholder="Rechercher par nom ou ville..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
-            <div className="filter-pill">
-              <span>{t.shops.filterType}:</span>
-              <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
-                <option value="">{t.shops.filterAll}</option>
-                <option value="Barbier">Barbier</option>
-                <option value="Salon Esthétique">Salon Esthétique</option>
-              </select>
-            </div>
+            <select value={cityFilter} onChange={(e) => setCityFilter(e.target.value)}>
+              <option value="">{t.shops.filterAll} — {t.shops.filterCity}</option>
+              {cities.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
+              <option value="">{t.shops.filterAll} — {t.shops.filterType}</option>
+              <option value="Barbier">Barbier</option>
+              <option value="Salon Esthétique">Salon Esthétique</option>
+            </select>
           </div>
 
           {filteredShops.length === 0 ? (
