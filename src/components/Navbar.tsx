@@ -47,9 +47,9 @@ export default function Navbar() {
           BARBERO
         </Link>
         <div className="navbar-links">
-          <Link to="/barbers" className="navbar-link" activeProps={{ className: "navbar-link active" }}>Hommes</Link>
-          <Link to="/salons" className="navbar-link" activeProps={{ className: "navbar-link active" }}>Femmes</Link>
-          <Link to="/join" className="navbar-link" activeProps={{ className: "navbar-link active" }}>Rejoindre</Link>
+          <Link to="/barbers" className="navbar-link" activeProps={{ className: "navbar-link active" }}>{useLang().t.nav.barbers}</Link>
+          <Link to="/salons" className="navbar-link" activeProps={{ className: "navbar-link active" }}>{useLang().t.nav.salons}</Link>
+          <Link to="/join" className="navbar-link" activeProps={{ className: "navbar-link active" }}>{useLang().t.nav.join}</Link>
         </div>
         <div className="nav-tools">
           <button className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
