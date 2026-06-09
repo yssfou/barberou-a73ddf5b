@@ -67,10 +67,10 @@ export default function Navbar() {
       </nav>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        <Link to="/" onClick={() => setOpen(false)}>Accueil</Link>
-        <Link to="/barbers" onClick={() => setOpen(false)}>Hommes</Link>
-        <Link to="/salons" onClick={() => setOpen(false)}>Femmes</Link>
-        <Link to="/join" onClick={() => setOpen(false)}>Rejoindre</Link>
+        <Link to="/" onClick={() => setOpen(false)}>{t.nav.home}</Link>
+        <Link to="/barbers" onClick={() => setOpen(false)}>{t.nav.barbers}</Link>
+        <Link to="/salons" onClick={() => setOpen(false)}>{t.nav.salons}</Link>
+        <Link to="/join" onClick={() => setOpen(false)}>{t.nav.join}</Link>
         <div className="mobile-tools">
           <button className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
