@@ -171,7 +171,7 @@ function Home() {
               <SearchIcon size={18} />
               <input
                 type="text"
-                placeholder="Rechercher par nom ou ville..."
+                placeholder={t.hero.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
