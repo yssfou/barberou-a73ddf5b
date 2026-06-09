@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import shopsData from "../data/shops.json";
 import { cities } from "../data/translations";
+import { useLang } from "../lib/LangContext";
 import ShopCard from "./ShopCard";
 import { SearchIcon } from "./Icons";
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function ShopListing({ typeFilter, title, subtitle }: Props) {
+  const { t } = useLang();
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
 
@@ -39,20 +41,20 @@ export default function ShopListing({ typeFilter, title, subtitle }: Props) {
             <SearchIcon size={18} />
             <input
               type="text"
-              placeholder="Rechercher par nom, ville ou quartier..."
+              placeholder={t.shops.searchPlaceholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
           </div>
           <select value={city} onChange={(e) => setCity(e.target.value)}>
-            <option value="">Toutes les villes</option>
+            <option value="">{t.hero.allCities}</option>
             {cities.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
         </div>
 
         {filtered.length === 0 ? (
           <p style={{ textAlign: "center", color: "var(--color-muted)", padding: 60 }}>
-            Aucun résultat trouvé.
+            {t.shops.noResults}
           </p>
         ) : (
           <div className="shops-grid">
