@@ -8,6 +8,7 @@ import { useLang } from "../lib/LangContext";
 import ArchFrame, { CornerOrnament, GoldDivider, BarberPole } from "../components/ArchFrame";
 import ShopCard from "../components/ShopCard";
 import { SearchIcon } from "../components/Icons";
+import { tCity, tType } from "../data/shopTranslations";
 
 export const Route = createFileRoute("/")({
   head: () => ({
