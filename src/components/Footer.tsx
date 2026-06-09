@@ -19,22 +19,22 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4>Explorer</h4>
-          <Link to="/barbers">Barbiers Hommes</Link>
-          <Link to="/salons">Salons Femmes</Link>
-          <Link to="/join">Ajouter mon salon</Link>
+          <h4>{t.footer.explore}</h4>
+          <Link to="/barbers">{t.footer.barbersLink}</Link>
+          <Link to="/salons">{t.footer.salonsLink}</Link>
+          <Link to="/join">{t.footer.addLink}</Link>
         </div>
 
         <div className="footer-col">
-          <h4>Contact</h4>
+          <h4>{t.footer.contact}</h4>
           <a href="tel:+21622476723">+216 22 476 723</a>
           <a href="https://wa.me/21622476723" target="_blank" rel="noopener">WhatsApp</a>
           <a href="mailto:hello@barberotunis.com">hello@barberotunis.com</a>
         </div>
 
         <div className="footer-col">
-          <h4>À propos</h4>
-          <p className="footer-about">Le répertoire premium des meilleurs barbiers et salons de Tunisie. Trouve, contacte, réserve — en un tap.</p>
+          <h4>{t.footer.about}</h4>
+          <p className="footer-about">{t.footer.aboutText}</p>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Barbero — barberotunis.com</span>
-        <span className="footer-credit">Created with <span className="heart">♥</span> by <strong>Ourabi Youssef</strong></span>
+        <span className="footer-credit">{t.footer.createdBy} <span className="heart">♥</span> {t.footer.by} <strong>Ourabi Youssef</strong></span>
       </div>
     </footer>
   );
