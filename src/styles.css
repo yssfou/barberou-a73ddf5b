@@ -1109,3 +1109,71 @@ img { display: block; max-width: 100%; }
 .join-footer-note p { margin: 6px 0; line-height: 1.6; }
 .join-footer-note strong { color: var(--color-gold-light); font-size: 18px; letter-spacing: 0.05em; }
 
+
+/* ========== LIGHT THEME OVERRIDES ========== */
+[data-theme="light"] .hero-search {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 8px 24px rgba(168, 130, 28, 0.08);
+}
+[data-theme="light"] .hero-search select {
+  color: var(--color-cream);
+}
+[data-theme="light"] .hero-search button {
+  color: #FFFFFF;
+}
+[data-theme="light"] .hero-search select option {
+  background: #FFFFFF;
+  color: var(--color-cream);
+}
+
+[data-theme="light"] .how-step {
+  background: linear-gradient(180deg, #FFFFFF, #FBF7EE);
+  box-shadow: 0 4px 14px rgba(168, 130, 28, 0.06);
+}
+[data-theme="light"] .how-step:hover {
+  box-shadow: 0 14px 32px rgba(168, 130, 28, 0.15);
+}
+
+[data-theme="light"] .shop-cover::after {
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.25));
+}
+[data-theme="light"] .shop-action {
+  background: rgba(168, 130, 28, 0.06);
+}
+
+[data-theme="light"] .filter-pill {
+  background: #FFFFFF;
+}
+
+[data-theme="light"] .mobile-menu {
+  background: rgba(250, 246, 238, 0.97);
+}
+[data-theme="light"] .mobile-menu a { color: var(--color-cream); }
+
+[data-theme="light"] .footer {
+  background: linear-gradient(180deg, transparent, #F5EFE2);
+}
+
+[data-theme="light"] .sticky-bar {
+  background: rgba(255, 250, 240, 0.96);
+}
+[data-theme="light"] .sticky-bar a { color: #FFFFFF; }
+[data-theme="light"] .sticky-bar .sb-phone { color: #FFFFFF; }
+
+[data-theme="light"] .theme-toggle {
+  background: rgba(168, 130, 28, 0.08);
+  color: var(--color-gold-dark);
+}
+
+[data-theme="light"] .services-table th { color: #FFFFFF; }
+[data-theme="light"] .services-table tr:nth-child(even) td { background: rgba(168, 130, 28, 0.04); }
+
+[data-theme="light"] .contact-card .contact-value {
+  background: rgba(168, 130, 28, 0.08);
+}
+
+[data-theme="light"] .btn-whatsapp,
+[data-theme="light"] .sticky-bar .sb-wa,
+[data-theme="light"] .sticky-bar .sb-fb,
+[data-theme="light"] .sticky-bar .sb-ig { color: #FFFFFF; }
