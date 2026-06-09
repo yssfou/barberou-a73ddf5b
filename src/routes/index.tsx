@@ -8,6 +8,7 @@ import { useLang } from "../lib/LangContext";
 import ArchFrame, { CornerOrnament, GoldDivider, BarberPole } from "../components/ArchFrame";
 import ShopCard from "../components/ShopCard";
 import { SearchIcon } from "../components/Icons";
+import { tCity, tType } from "../data/shopTranslations";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -178,12 +179,12 @@ function Home() {
             </div>
             <select value={cityFilter} onChange={(e) => setCityFilter(e.target.value)}>
               <option value="">{t.shops.filterAll} — {t.shops.filterCity}</option>
-              {cities.map((c) => <option key={c} value={c}>{c}</option>)}
+              {cities.map((c) => <option key={c} value={c}>{tCity(c, lang)}</option>)}
             </select>
             <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
               <option value="">{t.shops.filterAll} — {t.shops.filterType}</option>
-              <option value="Barbier">Barbier</option>
-              <option value="Salon Esthétique">Salon Esthétique</option>
+              <option value="Barbier">{tType("Barbier", lang)}</option>
+              <option value="Salon Esthétique">{tType("Salon Esthétique", lang)}</option>
             </select>
           </div>
 

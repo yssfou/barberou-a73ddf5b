@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useLang } from "../lib/LangContext";
 import { WhatsAppIcon, InstagramIcon, FacebookIcon, PhoneIcon } from "./Icons";
+import { tShop, tType, tCity, tArea } from "../data/shopTranslations";
 
 interface Shop {
   slug: string; name: string; city: string; area: string; type: string;
@@ -10,7 +11,7 @@ interface Shop {
 }
 
 export default function ShopCard({ shop }: { shop: Shop }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const isBarbier = shop.type === "Barbier";
 
   return (
@@ -19,16 +20,16 @@ export default function ShopCard({ shop }: { shop: Shop }) {
         <div className="shop-cover">
           <img src={shop.cover} alt={shop.name} loading="lazy" />
           {shop.featured && (<span className="shop-badge featured-badge">★ {t.shops.featured}</span>)}
-          <span className={`shop-badge ${isBarbier ? "type-barbier" : "type-salon"}`}>{shop.type}</span>
+          <span className={`shop-badge ${isBarbier ? "type-barbier" : "type-salon"}`}>{tType(shop.type, lang)}</span>
         </div>
         <div className="shop-body">
           <h3 className="shop-name">{shop.name}</h3>
           <div className="shop-meta">
-            <span className="city">{shop.city} — {shop.area}</span>
+            <span className="city">{tCity(shop.city, lang)} — {tArea(shop.area, lang)}</span>
             <span className="shop-rating">★ {shop.rating.toFixed(1)}</span>
           </div>
           <div className="shop-price">{shop.priceMin}–{shop.priceMax} DT</div>
-          <p className="shop-desc">{shop.description}</p>
+          <p className="shop-desc">{tShop(shop.slug, lang, "description", shop.description)}</p>
         </div>
       </Link>
       <div className="shop-actions">
