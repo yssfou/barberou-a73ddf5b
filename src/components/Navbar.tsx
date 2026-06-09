@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 const langs: Array<"fr" | "en" | "ar"> = ["fr", "en", "ar"];
 
 export default function Navbar() {
-  const { lang, setLang } = useLang();
+  const { lang, setLang, t } = useLang();
   const { theme, toggle } = useTheme();
   const navRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
@@ -47,9 +47,9 @@ export default function Navbar() {
           BARBERO
         </Link>
         <div className="navbar-links">
-          <Link to="/barbers" className="navbar-link" activeProps={{ className: "navbar-link active" }}>Hommes</Link>
-          <Link to="/salons" className="navbar-link" activeProps={{ className: "navbar-link active" }}>Femmes</Link>
-          <Link to="/join" className="navbar-link" activeProps={{ className: "navbar-link active" }}>Rejoindre</Link>
+          <Link to="/barbers" className="navbar-link" activeProps={{ className: "navbar-link active" }}>{t.nav.barbers}</Link>
+          <Link to="/salons" className="navbar-link" activeProps={{ className: "navbar-link active" }}>{t.nav.salons}</Link>
+          <Link to="/join" className="navbar-link" activeProps={{ className: "navbar-link active" }}>{t.nav.join}</Link>
         </div>
         <div className="nav-tools">
           <button className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
@@ -67,10 +67,10 @@ export default function Navbar() {
       </nav>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        <Link to="/" onClick={() => setOpen(false)}>Accueil</Link>
-        <Link to="/barbers" onClick={() => setOpen(false)}>Hommes</Link>
-        <Link to="/salons" onClick={() => setOpen(false)}>Femmes</Link>
-        <Link to="/join" onClick={() => setOpen(false)}>Rejoindre</Link>
+        <Link to="/" onClick={() => setOpen(false)}>{t.nav.home}</Link>
+        <Link to="/barbers" onClick={() => setOpen(false)}>{t.nav.barbers}</Link>
+        <Link to="/salons" onClick={() => setOpen(false)}>{t.nav.salons}</Link>
+        <Link to="/join" onClick={() => setOpen(false)}>{t.nav.join}</Link>
         <div className="mobile-tools">
           <button className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
