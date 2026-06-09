@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 const langs: Array<"fr" | "en" | "ar"> = ["fr", "en", "ar"];
 
 export default function Navbar() {
-  const { lang, setLang } = useLang();
+  const { lang, setLang, t } = useLang();
   const { theme, toggle } = useTheme();
   const navRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
