@@ -14,10 +14,218 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          booking_date: string
+          booking_time: string
+          created_at: string
+          customer_name: string
+          customer_phone: string
+          id: string
+          service_id: string
+          shop_id: string
+          status: string
+        }
+        Insert: {
+          booking_date: string
+          booking_time: string
+          created_at?: string
+          customer_name: string
+          customer_phone: string
+          id?: string
+          service_id: string
+          shop_id: string
+          status?: string
+        }
+        Update: {
+          booking_date?: string
+          booking_time?: string
+          created_at?: string
+          customer_name?: string
+          customer_phone?: string
+          id?: string
+          service_id?: string
+          shop_id?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_shop_id_fkey"
+            columns: ["shop_id"]
+            isOneToOne: false
+            referencedRelation: "shops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      services: {
+        Row: {
+          created_at: string
+          duration_minutes: number
+          id: string
+          name: string
+          price: number
+          shop_id: string
+        }
+        Insert: {
+          created_at?: string
+          duration_minutes?: number
+          id?: string
+          name: string
+          price: number
+          shop_id: string
+        }
+        Update: {
+          created_at?: string
+          duration_minutes?: number
+          id?: string
+          name?: string
+          price?: number
+          shop_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "services_shop_id_fkey"
+            columns: ["shop_id"]
+            isOneToOne: false
+            referencedRelation: "shops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      shops: {
+        Row: {
+          area: string | null
+          city: string
+          created_at: string
+          description: string | null
+          facebook: string | null
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          instagram: string | null
+          name: string
+          phone: string | null
+          price_max: number | null
+          price_min: number | null
+          rating: number | null
+          slug: string
+          type: string
+          whatsapp: string | null
+        }
+        Insert: {
+          area?: string | null
+          city: string
+          created_at?: string
+          description?: string | null
+          facebook?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          instagram?: string | null
+          name: string
+          phone?: string | null
+          price_max?: number | null
+          price_min?: number | null
+          rating?: number | null
+          slug: string
+          type: string
+          whatsapp?: string | null
+        }
+        Update: {
+          area?: string | null
+          city?: string
+          created_at?: string
+          description?: string | null
+          facebook?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          instagram?: string | null
+          name?: string
+          phone?: string | null
+          price_max?: number | null
+          price_min?: number | null
+          rating?: number | null
+          slug?: string
+          type?: string
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
+      working_hours: {
+        Row: {
+          close_time: string | null
+          day_of_week: number
+          id: string
+          is_closed: boolean
+          open_time: string | null
+          shop_id: string
+        }
+        Insert: {
+          close_time?: string | null
+          day_of_week: number
+          id?: string
+          is_closed?: boolean
+          open_time?: string | null
+          shop_id: string
+        }
+        Update: {
+          close_time?: string | null
+          day_of_week?: number
+          id?: string
+          is_closed?: boolean
+          open_time?: string | null
+          shop_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "working_hours_shop_id_fkey"
+            columns: ["shop_id"]
+            isOneToOne: false
+            referencedRelation: "shops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
-      [_ in never]: never
+      booked_slots: {
+        Row: {
+          booking_date: string | null
+          booking_time: string | null
+          shop_id: string | null
+          status: string | null
+        }
+        Insert: {
+          booking_date?: string | null
+          booking_time?: string | null
+          shop_id?: string | null
+          status?: string | null
+        }
+        Update: {
+          booking_date?: string | null
+          booking_time?: string | null
+          shop_id?: string | null
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_shop_id_fkey"
+            columns: ["shop_id"]
+            isOneToOne: false
+            referencedRelation: "shops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       [_ in never]: never
