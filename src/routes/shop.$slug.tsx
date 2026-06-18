@@ -1,11 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import shopsData from "../data/shops.json";
 import { useLang } from "../lib/LangContext";
 import { GoldDivider } from "../components/ArchFrame";
 import { WhatsAppIcon, PhoneIcon, FacebookIcon, InstagramIcon } from "../components/Icons";
+import BookingWidget from "../components/BookingWidget";
+import { fetchShopBundle, type Service, type Shop as DbShop, type WorkingHour } from "../lib/booking";
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
@@ -117,17 +119,18 @@ function ShopProfile() {
         </div>
 
         <aside>
-          <div className="cta-card" style={{ position: "sticky", top: 100 }}>
-            <h3 className="font-heading" style={{ fontSize: 22, marginBottom: 16, color: "var(--color-cream)" }}>
-              Contact direct
-            </h3>
-            <a className="btn-whatsapp" href={shop.whatsapp} target="_blank" rel="noopener">
-              <WhatsAppIcon size={20} /> {t.profile.bookWhatsapp}
-            </a>
-            <a className="btn-gold-outline" href={`tel:${shop.phone}`}>
-              <PhoneIcon size={18} /> {t.profile.callDirect}
-            </a>
-            <p style={{ marginTop: 16, color: "var(--color-muted)", fontSize: 13 }}>{shop.phone}</p>
+          <BookingSection slug={shop.slug} fallback={shop} />
+          <div className="cta-card" style={{ marginTop: 18 }}>
+            <h4 className="font-heading" style={{ fontSize: 16, marginBottom: 12, color: "var(--color-muted)", textAlign: "center", letterSpacing: "0.08em" }}>
+              — OU —
+            </h4>
+            <div className="shop-actions" style={{ position: "static", display: "flex", justifyContent: "center", gap: 12 }}>
+              <a className="shop-action phone" href={`tel:${shop.phone}`} aria-label="Phone"><PhoneIcon size={20} /></a>
+              <a className="shop-action whatsapp" href={shop.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp"><WhatsAppIcon size={20} /></a>
+              <a className="shop-action facebook" href={shop.facebook} target="_blank" rel="noopener" aria-label="Facebook"><FacebookIcon size={20} /></a>
+              <a className="shop-action instagram" href={shop.instagram} target="_blank" rel="noopener" aria-label="Instagram"><InstagramIcon size={20} /></a>
+            </div>
+            <p style={{ marginTop: 12, color: "var(--color-muted)", fontSize: 12, textAlign: "center" }}>{shop.phone}</p>
           </div>
         </aside>
       </div>
@@ -140,4 +143,39 @@ function ShopProfile() {
       </div>
     </article>
   );
+}
+
+function BookingSection({ slug, fallback }: { slug: string; fallback: any }) {
+  const [data, setData] = useState<{ shop: DbShop | null; services: Service[]; workingHours: WorkingHour[] } | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetchShopBundle(slug).then((d) => {
+      if (active) setData(d);
+    });
+    return () => { active = false; };
+  }, [slug]);
+
+  if (!data) {
+    return <div className="booking-widget"><p className="bw-empty">…</p></div>;
+  }
+
+  // Synthesize a Shop object: prefer DB row, fall back to JSON for whatsapp link in success step.
+  const shop: DbShop = data.shop ?? {
+    id: "",
+    slug,
+    name: fallback.name,
+    city: fallback.city,
+    area: fallback.area,
+    type: fallback.type,
+    price_min: fallback.priceMin,
+    price_max: fallback.priceMax,
+    phone: fallback.phone,
+    whatsapp: fallback.whatsapp,
+    facebook: fallback.facebook,
+    instagram: fallback.instagram,
+    image_url: fallback.cover,
+  };
+
+  return <BookingWidget shop={shop} services={data.services} workingHours={data.workingHours} />;
 }
