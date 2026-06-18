@@ -1,11 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import shopsData from "../data/shops.json";
 import { useLang } from "../lib/LangContext";
 import { GoldDivider } from "../components/ArchFrame";
 import { WhatsAppIcon, PhoneIcon, FacebookIcon, InstagramIcon } from "../components/Icons";
+import BookingWidget from "../components/BookingWidget";
+import { fetchShopBundle, type Service, type Shop as DbShop, type WorkingHour } from "../lib/booking";
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
