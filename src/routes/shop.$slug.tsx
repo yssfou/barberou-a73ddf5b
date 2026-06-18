@@ -119,17 +119,18 @@ function ShopProfile() {
         </div>
 
         <aside>
-          <div className="cta-card" style={{ position: "sticky", top: 100 }}>
-            <h3 className="font-heading" style={{ fontSize: 22, marginBottom: 16, color: "var(--color-cream)" }}>
-              Contact direct
-            </h3>
-            <a className="btn-whatsapp" href={shop.whatsapp} target="_blank" rel="noopener">
-              <WhatsAppIcon size={20} /> {t.profile.bookWhatsapp}
-            </a>
-            <a className="btn-gold-outline" href={`tel:${shop.phone}`}>
-              <PhoneIcon size={18} /> {t.profile.callDirect}
-            </a>
-            <p style={{ marginTop: 16, color: "var(--color-muted)", fontSize: 13 }}>{shop.phone}</p>
+          <BookingSection slug={shop.slug} fallback={shop} />
+          <div className="cta-card" style={{ marginTop: 18 }}>
+            <h4 className="font-heading" style={{ fontSize: 16, marginBottom: 12, color: "var(--color-muted)", textAlign: "center", letterSpacing: "0.08em" }}>
+              — OU —
+            </h4>
+            <div className="shop-actions" style={{ position: "static", display: "flex", justifyContent: "center", gap: 12 }}>
+              <a className="shop-action phone" href={`tel:${shop.phone}`} aria-label="Phone"><PhoneIcon size={20} /></a>
+              <a className="shop-action whatsapp" href={shop.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp"><WhatsAppIcon size={20} /></a>
+              <a className="shop-action facebook" href={shop.facebook} target="_blank" rel="noopener" aria-label="Facebook"><FacebookIcon size={20} /></a>
+              <a className="shop-action instagram" href={shop.instagram} target="_blank" rel="noopener" aria-label="Instagram"><InstagramIcon size={20} /></a>
+            </div>
+            <p style={{ marginTop: 12, color: "var(--color-muted)", fontSize: 12, textAlign: "center" }}>{shop.phone}</p>
           </div>
         </aside>
       </div>
