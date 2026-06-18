@@ -144,3 +144,38 @@ function ShopProfile() {
     </article>
   );
 }
+
+function BookingSection({ slug, fallback }: { slug: string; fallback: any }) {
+  const [data, setData] = useState<{ shop: DbShop | null; services: Service[]; workingHours: WorkingHour[] } | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetchShopBundle(slug).then((d) => {
+      if (active) setData(d);
+    });
+    return () => { active = false; };
+  }, [slug]);
+
+  if (!data) {
+    return <div className="booking-widget"><p className="bw-empty">…</p></div>;
+  }
+
+  // Synthesize a Shop object: prefer DB row, fall back to JSON for whatsapp link in success step.
+  const shop: DbShop = data.shop ?? {
+    id: "",
+    slug,
+    name: fallback.name,
+    city: fallback.city,
+    area: fallback.area,
+    type: fallback.type,
+    price_min: fallback.priceMin,
+    price_max: fallback.priceMax,
+    phone: fallback.phone,
+    whatsapp: fallback.whatsapp,
+    facebook: fallback.facebook,
+    instagram: fallback.instagram,
+    image_url: fallback.cover,
+  };
+
+  return <BookingWidget shop={shop} services={data.services} workingHours={data.workingHours} />;
+}
