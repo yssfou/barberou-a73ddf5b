@@ -64,7 +64,7 @@ export default function BookingWidget({ shop, services, workingHours }: Props) {
     return generateSlots(workingHours, date, service.duration_minutes);
   }, [date, service, workingHours]);
 
-  // Load + realtime subscribe to booked slots when date changes
+  // Load booked slots when date/service changes (no Realtime to avoid leaking customer PII).
   useEffect(() => {
     if (!date || !service) return;
     const iso = toISODate(date);
@@ -72,30 +72,8 @@ export default function BookingWidget({ shop, services, workingHours }: Props) {
     fetchBookedSlots(shop.id, iso).then((arr) => {
       if (active) setBookedTimes(arr);
     });
-    const channel = supabase
-      .channel(`bookings-${shop.id}-${iso}`)
-      .on(
-        "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "bookings",
-          filter: `shop_id=eq.${shop.id}`,
-        },
-        (payload: any) => {
-          if (payload.new?.booking_date === iso) {
-            setBookedTimes((prev) =>
-              prev.includes(payload.new.booking_time)
-                ? prev
-                : [...prev, payload.new.booking_time],
-            );
-          }
-        },
-      )
-      .subscribe();
     return () => {
       active = false;
-      supabase.removeChannel(channel);
     };
   }, [date, service, shop.id]);
 
