@@ -157,6 +157,13 @@ export default function BookingWidget({ shop, services, workingHours }: Props) {
       return;
     }
     setStep(5);
+    // Auto-open WhatsApp to the shop owner with the booking details
+    if (typeof window !== "undefined") {
+      const msg = `${tb.success.waMsgIntro} ${shop.name} — ${service.name} — ${formatDate(date, lang)} ${formatTime(time)} — ${name.trim()} (${v.normalized}).`;
+      const raw = (shop.whatsapp || shop.phone || "21622476723").replace(/[^0-9]/g, "");
+      const num = raw.startsWith("216") ? raw : `216${raw.replace(/^0+/, "")}`;
+      window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+    }
   };
 
   const waReminderHref = useMemo(() => {
