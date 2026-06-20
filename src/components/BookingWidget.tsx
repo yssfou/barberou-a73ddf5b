@@ -24,6 +24,14 @@ interface Props {
 
 type Step = 1 | 2 | 3 | 4 | 5;
 
+function resolveWhatsAppNumber(shop: Shop): string {
+  // The first / featured shop card must always reach the owner's number.
+  if (shop.slug === "barbershop-classic") return "21622476723";
+  const raw = (shop.whatsapp || shop.phone || "21622476723").replace(/[^0-9]/g, "");
+  return raw.startsWith("216") ? raw : `216${raw.replace(/^0+/, "")}`;
+}
+
+
 export default function BookingWidget({ shop, services, workingHours }: Props) {
   const { t, lang } = useLang();
   const [step, setStep] = useState<Step>(1);
@@ -138,20 +146,19 @@ export default function BookingWidget({ shop, services, workingHours }: Props) {
     // Auto-open WhatsApp to the shop owner with the booking details
     if (typeof window !== "undefined") {
       const msg = `${tb.success.waMsgIntro} ${shop.name} — ${service.name} — ${formatDate(date, lang)} ${formatTime(time)} — ${name.trim()} (${v.normalized}).`;
-      const raw = (shop.whatsapp || shop.phone || "21622476723").replace(/[^0-9]/g, "");
-      const num = raw.startsWith("216") ? raw : `216${raw.replace(/^0+/, "")}`;
+      const num = resolveWhatsAppNumber(shop);
       window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
     }
+
   };
 
   const waReminderHref = useMemo(() => {
     if (!service || !date || !time) return "#";
     const msg = `${tb.success.waMsgIntro} ${shop.name} — ${service.name} — ${formatDate(date, lang)} ${formatTime(time)} — ${name} (${phone}).`;
-    // Always send to the shop's WhatsApp number (default to 21622476723 if missing).
-    const raw = (shop.whatsapp || shop.phone || "21622476723").replace(/[^0-9]/g, "");
-    const num = raw.startsWith("216") ? raw : `216${raw.replace(/^0+/, "")}`;
+    const num = resolveWhatsAppNumber(shop);
     return `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
   }, [service, date, time, shop, lang, tb, name, phone]);
+
 
   // No services configured for this shop → graceful empty state
   if (services.length === 0 || workingHours.length === 0) {
