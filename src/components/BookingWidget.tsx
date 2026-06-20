@@ -24,6 +24,14 @@ interface Props {
 
 type Step = 1 | 2 | 3 | 4 | 5;
 
+function resolveWhatsAppNumber(shop: Shop): string {
+  // The first / featured shop card must always reach the owner's number.
+  if (shop.slug === "barbershop-classic") return "21622476723";
+  const raw = (shop.whatsapp || shop.phone || "21622476723").replace(/[^0-9]/g, "");
+  return raw.startsWith("216") ? raw : `216${raw.replace(/^0+/, "")}`;
+}
+
+
 export default function BookingWidget({ shop, services, workingHours }: Props) {
   const { t, lang } = useLang();
   const [step, setStep] = useState<Step>(1);
